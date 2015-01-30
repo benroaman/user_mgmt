@@ -1,1 +1,86 @@
 /* TODO: Style your site */
+
+body {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.new-user-input {
+  display: block;
+  margin-bottom: 1em;
+  font-size: 1em;
+  height: 1.75em;
+  width: 95%;
+}
+
+.form-label {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: .25em;
+}
+
+.form-label + .new-user-input {
+  margin-top: 1em;
+}
+
+.user-listing-container {
+  position: relative;
+  border: 1px dashed black;
+  padding: 1em;
+  }
+
+.user-listing-container + .user-listing-container {
+  margin-top: .35em;
+}
+
+.user-listing-email {
+  float: right;
+  text-decoration: none;
+  color: dodgerblue;
+  transition: all .1s;
+}
+
+.user-listing-email:hover {
+  color: royalblue;
+}
+
+.user-listing-email:active {
+  color: dodgerblue;
+}
+
+.delete {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: none;
+}
+
+.new-user-form,
+.user-list {
+  display: inline-block;
+  padding: 10px;
+  border: 1px dashed dodgerblue;
+  text-align: left;
+}
+
+.main-toolbar {
+  height: 60px;
+}
+
+.new-user-form {
+  width: 20%;
+}
+
+.user-list {
+  width: 70%%;
+  vertical-align: top;
+}
+
+.submit-button {
+  background: limegreen;
+  font-size: 1.5em;
+  height: 1.5em;
+  border: none;
+}

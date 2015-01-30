@@ -7,10 +7,36 @@
 </head>
 <body>
 
-  <!-- TODO: put your markup here -->
+  <div class="main-toolbar">
+    <input type="text" class="search-bar" />
+    <button class="a-z">A-Z</button>
+    <button class="z-a">Z-A</button>
+  </div>
+
+  <form class="new-user-form">
+    <div class="form-label">Create User</div>
+    <input class="new-user-input first-name-input" type="text" required="required" placeholder="first name" />
+    <input class="new-user-input last-name-input" type="text" required="required" placeholder="last name" />
+    <input class="new-user-input email-input" type="email" required="required" placeholder="email address" />
+    <button class="submit-button">+ADD</button>
+  </form>
+
+  <div class="user-list">
+    <div class="user-listing-container">
+      <button class="delete">x</button>
+      <span class="user-listing-name">Ben Roaman</span>
+      <a class="user-listing-email" href="mailto:benroaman@gmail.com">benroaman@gmail.com</a>
+    </div>
+    <div class="user-listing-container">
+      <button class="delete">x</button>
+      <span class="user-listing-name">Butts Carlton</span>
+      <a class="user-listing-email" href="mailto:benroaman@gmail.com">butts@mailtown.org</a>
+    </div>
+  </div>
 
   <script src="js/object-store.js"></script>
   <script src="js/user.js"></script>
+  <script src="js/main.js"></script>
 
   <!-- TODO: add more scripts here that use the
   classes defined in the previous scripts -->

@@ -279,6 +279,7 @@ function newTimestamp (user) {
   var classAtt = document.createAttribute('class');
   classAtt.value = 'timestamp';
   timestamp.setAttributeNode(classAtt);
+  timestamp.className = 'timestamp';
   timestamp.textContent = user.timestampString();
   return timestamp;
 }

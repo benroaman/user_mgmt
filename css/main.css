@@ -2,21 +2,44 @@
 
 body {
   text-align: center;
-  font-family: sans-serif;
+  font-family: raleway, sans-serif;
+  background: url("../img/boats.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: fixed;
+
 }
 
 .new-user-input {
+  font-family: raleway;
+  box-sizing: border-box;
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   font-size: 1em;
-  height: 1.75em;
+  height: 2.5em;
   width: 95%;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, .35);
+  text-align: center;
+  transition: all .15s;
 }
 
+.new-user-input:hover {
+  border: 1px solid steelblue;
+}
+
+.new-user-input:focus {
+  outline: none;
+  border: 2px solid steelblue;
+  }
+
 .form-label {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
-  margin-top: .25em;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  color: steelblue;
 }
 
 .form-label + .new-user-input {
@@ -25,8 +48,9 @@ body {
 
 .user-listing-container {
   position: relative;
-  border: 1px dashed black;
+  /*border: 1px solid slategrey;*/
   padding: 1em;
+  background: rgba(255,255,255,.5)
   }
 
 .user-listing-container + .user-listing-container {
@@ -36,16 +60,20 @@ body {
 .user-listing-email {
   float: right;
   text-decoration: none;
-  color: dodgerblue;
+  color: steelblue;
   transition: all .1s;
 }
 
 .user-listing-email:hover {
-  color: royalblue;
+  color: skyblue;
 }
 
 .user-listing-email:active {
-  color: dodgerblue;
+  color: steelblue;
+}
+
+.user-listing-name {
+  text-transform: capitalize;
 }
 
 .delete {
@@ -55,32 +83,181 @@ body {
   top: 0;
   left: 0;
   padding: none;
+  -webkit-transition: all .3s;
+}
+
+.delete:hover {
+  color: crimson;
+}
+
+.delete:active {
+  font-weight: bold;
+}
+
+.delete:focus {
+  outline: none;
 }
 
 .new-user-form,
 .user-list {
   display: inline-block;
   padding: 10px;
-  border: 1px dashed dodgerblue;
   text-align: left;
+  border: 2px solid rgba(0, 0, 0, .35);
 }
 
 .main-toolbar {
-  height: 60px;
+  height: 120px;
+  width: 91.5%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
 }
 
 .new-user-form {
   width: 20%;
+  text-align: center;
+  margin-right: 1.5%;
 }
 
 .user-list {
-  width: 70%%;
+  width: 100%;
   vertical-align: top;
+  height: 360px;
+  position: relative;
+  overflow: scroll;
 }
 
 .submit-button {
-  background: limegreen;
+  font-family: raleway;
+  position: relative;
+  background: steelblue;
   font-size: 1.5em;
-  height: 1.5em;
+  padding: .5em;
   border: none;
+  border-radius: .6em;
+  color: white;
+  transition: all .1s;
+  margin-bottom: .5em;
+}
+
+.submit-button:before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  top: 7.5%;
+  border: 1px dotted white;
+  border-radius: .45em;
+  height: 85%;
+  width: 90%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.submit-button:hover {
+  background: skyblue;
+}
+
+.submit-button:focus {
+  outline: none;
+  background: steelblue;
+}
+
+.submit-button:active {
+  background: steelblue;
+}
+
+.no-users {
+  font-size: 4em;
+  color: rgba(0, 0, 0, .1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.bonus {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: 70%;
+  text-align: center;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.a-z, .z-a {
+  font-family: raleway;
+  position: relative;
+  background: steelblue;
+  font-size: 1.5em;
+  height: 1.75em;
+  width: 2.75em;
+  border: none;
+  border-radius: .6em;
+  color: white;
+  transition: all .15s;
+  margin-right: .25em;
+}
+
+.a-z + .z-a {
+  margin-right: 1em;
+}
+
+.a-z:before, .z-a:before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  top: 7.5%;
+  border: 1px dotted white;
+  border-radius: .5em;
+  height: 85%;
+  width: 90%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.a-z:hover, .z-a:hover {
+  background: skyblue;
+}
+
+.a-z:focus, .z-a:focus {
+  outline: none;
+}
+
+.a-z:active, .z-a:active {
+  background: steelblue;
+}
+
+.tool-container {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.search-bar {
+  font-family: raleway;
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 2em;
+  width: 10em;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, .35);
+  text-align: center;
+  transition: all .15s;
+  margin-right: 4em;
+}
+
+.search-bar:hover {
+  border: 1px solid steelblue;
+}
+
+.search-bar:focus {
+  outline: none;
+  border: 2px solid steelblue;
 }

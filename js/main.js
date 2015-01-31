@@ -4,6 +4,8 @@ var searchBar = document.querySelector('.search-bar');
 var azButton = document.querySelector('.a-z');
 var zaButton = document.querySelector('.z-a');
 
+refreshList();
+
 addUserForm.addEventListener('submit', function (e) {
   e.stopPropagation();
   e.preventDefault();
@@ -69,6 +71,7 @@ function orderDescending() {
 //---------------------------------//
 
 function searchUsers (str) {
+  str = str.toLowerCase();
   var userArray = userList.query();
   clearList();
 
@@ -90,9 +93,9 @@ function clearList() {
 //--------------------------------------//
 
 function createUser () {
-  var newUser = User({ firstName: document.querySelector('.first-name-input').value.trim(),
-                          lastName: document.querySelector('.last-name-input').value.trim(),
-                          email: document.querySelector('.email-input').value.trim() });
+  var newUser = User({ firstName: document.querySelector('.first-name-input').value.toLowerCase().trim(),
+                          lastName: document.querySelector('.last-name-input').value.toLowerCase().trim(),
+                          email: document.querySelector('.email-input').value.toLowerCase().trim() });
   if (userList.add(newUser)) {
     document.querySelector('.user-list').appendChild(newUserListing(newUser));
   } else {
@@ -152,6 +155,10 @@ function refreshList() {
   clearList();
   for (var i = 0; i < userArray.length; ++i) {
     document.querySelector('.user-list').appendChild(newUserListing(userArray[i]));
+  }
+
+  if (userArray === null || userArray.length <=0) {
+    document.querySelector('.no-users').className += ' .visible';
   }
 }
 

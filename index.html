@@ -2,15 +2,18 @@
 <html>
 <head>
   <title>User Management</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
   <div class="main-toolbar">
-    <input type="text" class="search-bar" />
-    <button class="a-z">A-Z</button>
-    <button class="z-a">Z-A</button>
+    <div class="tool-container">
+      <input type="text" class="search-bar" placeholder="search" />
+      <button class="a-z">a-z</button>
+      <button class="z-a">z-a</button>
+    </div>
   </div>
 
   <form class="new-user-form">
@@ -18,13 +21,15 @@
     <input class="new-user-input first-name-input" type="text" required="required" placeholder="first name" />
     <input class="new-user-input last-name-input" type="text" required="required" placeholder="last name" />
     <input class="new-user-input email-input" type="email" required="required" placeholder="email address" />
-    <button class="submit-button">+ADD</button>
+    <button class="submit-button">+add</button>
   </form>
+<div class="bonus">
+  <div class="no-users">no users</div>
 
   <div class="user-list">
     <div class="user-listing-container">
       <button class="delete">x</button>
-      <span class="user-listing-name">Ben Roaman</span>
+      <span class="user-listing-name"> ben roaman</span>
       <a class="user-listing-email" href="mailto:benroaman@gmail.com">benroaman@gmail.com</a>
     </div>
     <div class="user-listing-container">
@@ -33,6 +38,7 @@
       <a class="user-listing-email" href="mailto:benroaman@gmail.com">butts@mailtown.org</a>
     </div>
   </div>
+</div>
 
   <script src="js/object-store.js"></script>
   <script src="js/user.js"></script>

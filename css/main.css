@@ -38,7 +38,6 @@ body {
   font-size: 2em;
   font-weight: bold;
   margin-top: .5em;
-  margin-bottom: 1em;
   color: steelblue;
 }
 
@@ -86,16 +85,65 @@ body {
   -webkit-transition: all .3s;
 }
 
-.delete:hover {
+.delete-actual {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  border: none;
+  padding: none;
+}
+
+.delete-actual:hover {
   color: crimson;
 }
 
-.delete:active {
+.delete-actual:active {
   font-weight: bold;
 }
 
-.delete:focus {
+.delete-actual:focus {
   outline: none;
+}
+
+.delete-widget {
+  margin-left: 16px;
+  z-index: 100;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .15s;
+  background: firebrick;
+  height: 48px;
+  vertical-align: top;
+  text-align: center;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.delete-widget-text {
+  display: block;
+  font-size: .75em;
+  padding: .5em .5em .5em .5em;
+}
+
+.delete-widget-button {
+  font-family: raleway;
+  font-size: .75em;
+  background: none;
+  border: 1px solid white;
+  color:white;
+  transition: .15s;
+}
+
+.delete-widget-button + .delete-widget-button {
+  margin-left: 1em;
+}
+
+.delete-widget-button:hover {
+  background: white;
+  color: firebrick;
 }
 
 .new-user-form,
@@ -116,6 +164,7 @@ body {
 
 .new-user-form {
   width: 20%;
+  height: 366px;
   text-align: center;
   margin-right: 1.5%;
 }
@@ -123,7 +172,7 @@ body {
 .user-list {
   width: 100%;
   vertical-align: top;
-  height: 360px;
+  height: 366px;
   position: relative;
   overflow: scroll;
 }
@@ -131,12 +180,13 @@ body {
 .submit-button {
   font-family: raleway;
   position: relative;
-  background: steelblue;
+  background: none;
   font-size: 1.5em;
   padding: .5em;
   border: none;
   border-radius: .6em;
-  color: white;
+  border: 1px solid steelBlue;
+  color: steelblue;
   transition: all .1s;
   margin-bottom: .5em;
 }
@@ -146,7 +196,7 @@ body {
   position: absolute;
   left: 5%;
   top: 7.5%;
-  border: 1px dotted white;
+  border: 1px dotted steelblue;
   border-radius: .45em;
   height: 85%;
   width: 90%;
@@ -155,27 +205,29 @@ body {
 }
 
 .submit-button:hover {
-  background: skyblue;
+  background: rgba(255, 255, 255, .35);
 }
 
 .submit-button:focus {
   outline: none;
-  background: steelblue;
+  background: rgba(255, 255, 255, .35);
 }
 
 .submit-button:active {
-  background: steelblue;
+  background: white;
 }
 
 .no-users {
-  font-size: 4em;
+  font-size: 3.5em;
   color: rgba(0, 0, 0, .1);
   position: absolute;
-  left: 50%;
+  text-align: center;
+  width: 100%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
+  -webkit-transform: translate(0, -50%);
   opacity: 0;
   visibility: hidden;
+  transition: all .25s;
 }
 
 .bonus {
@@ -186,18 +238,12 @@ body {
   text-align: center;
 }
 
-.visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-.a-z, .z-a {
+.sort-button {
   font-family: raleway;
   position: relative;
   background: steelblue;
   font-size: 1.5em;
   height: 1.75em;
-  width: 2.75em;
   border: none;
   border-radius: .6em;
   color: white;
@@ -205,11 +251,11 @@ body {
   margin-right: .25em;
 }
 
-.a-z + .z-a {
+.sort-button + .sort-button {
   margin-right: 1em;
 }
 
-.a-z:before, .z-a:before {
+.sort-button:before {
   content: '';
   position: absolute;
   left: 5%;
@@ -222,15 +268,15 @@ body {
   box-sizing: border-box;
 }
 
-.a-z:hover, .z-a:hover {
+.sort-button:hover {
   background: skyblue;
 }
 
-.a-z:focus, .z-a:focus {
+.sort-button:focus {
   outline: none;
 }
 
-.a-z:active, .z-a:active {
+.sort-button:active {
   background: steelblue;
 }
 
@@ -260,4 +306,27 @@ body {
 .search-bar:focus {
   outline: none;
   border: 2px solid steelblue;
+}
+
+.user-exists {
+  color: firebrick;
+  font-size: .75em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  opacity: 0;
+  transition: all .25s;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.timestamp {
+  font-size: .6em;
+  color: rgba(0, 0, 0, .35);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

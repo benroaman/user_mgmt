@@ -8,6 +8,7 @@ function User(spec) {
     firstName: spec.firstName,
     lastName: spec.lastName,
     email: spec.email,
+    timestamp: spec.timestamp,
 
     fullName: function() {
       return this.firstName + ' ' + this.lastName;
@@ -15,6 +16,14 @@ function User(spec) {
 
     equal: function(otherUser) {
       return this.email === otherUser.email;
+    },
+
+    timestampString: function() {
+      return this.timestamp.toDateString() + ' ' + this.timestamp.toLocaleTimeString();
+    },
+
+    timestampNumber: function() {
+      return this.timestamp.getTime();
     }
 
   }

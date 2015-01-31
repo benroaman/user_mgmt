@@ -11,34 +11,40 @@
   <div class="main-toolbar">
     <div class="tool-container">
       <input type="text" class="search-bar" placeholder="search" />
-      <button class="a-z">a-z</button>
-      <button class="z-a">z-a</button>
+      <button class="sort-button a-z">sort a-z</button>
+      <button class="sort-button z-a">sort z-a</button>
+      <button class="sort-button newest-oldest">newest first</button>
+      <button class="sort-button oldest-newest">oldest first</button>
     </div>
   </div>
 
   <form class="new-user-form">
     <div class="form-label">Create User</div>
+    <div class="user-exists">user already exists</div>
     <input class="new-user-input first-name-input" type="text" required="required" placeholder="first name" />
     <input class="new-user-input last-name-input" type="text" required="required" placeholder="last name" />
     <input class="new-user-input email-input" type="email" required="required" placeholder="email address" />
     <button class="submit-button">+add</button>
   </form>
-<div class="bonus">
-  <div class="no-users">no users</div>
 
-  <div class="user-list">
-    <div class="user-listing-container">
-      <button class="delete">x</button>
-      <span class="user-listing-name"> ben roaman</span>
-      <a class="user-listing-email" href="mailto:benroaman@gmail.com">benroaman@gmail.com</a>
+  <div class="bonus">
+
+  <div class="no-users">...no users found</div>
+
+    <div class="user-list">
+      <!-- <div class="user-listing-container">
+        <span class="delete">x</span>
+        <span class="user-listing-name"> ben roaman</span>
+        <a class="user-listing-email" href="mailto:benroaman@gmail.com">benroaman@gmail.com</a>
+      </div>
+      <div class="user-listing-container">
+        <button class="delete">x</button>
+        <span class="user-listing-name">Butts Carlton</span>
+        <a class="user-listing-email" href="mailto:butts@mailtown.org">butts@mailtown.org</a>
+      </div> -->
     </div>
-    <div class="user-listing-container">
-      <button class="delete">x</button>
-      <span class="user-listing-name">Butts Carlton</span>
-      <a class="user-listing-email" href="mailto:benroaman@gmail.com">butts@mailtown.org</a>
-    </div>
+
   </div>
-</div>
 
   <script src="js/object-store.js"></script>
   <script src="js/user.js"></script>

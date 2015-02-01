@@ -12,6 +12,7 @@ showNoUserNote();
 addUserForm.addEventListener('submit', function (e) {
   e.stopPropagation();
   e.preventDefault();
+  clearSearch();
   createUser();
 })
 
@@ -20,18 +21,22 @@ searchBar.addEventListener('keyup', function () {
 })
 
 azButton.addEventListener('click', function() {
+  clearSearch();
   fullNameAscending();
 })
 
 zaButton.addEventListener('click', function() {
+  clearSearch();
   fullNameDescending();
 })
 
 newestFirstButton.addEventListener('click', function() {
+  clearSearch();
   timestampAscending();
 })
 
 oldestFirstButton.addEventListener('click', function() {
+  clearSearch();
   timestampDescending();
 })
 
@@ -86,10 +91,10 @@ function fullNameDescending() {
 function timestampAscending() {
   var userArray = userList.query();
   userArray.sort( function (a, b) {
-    if (a.timestampNumber() > b.timestampNumber()) {
+    if (b.timestampNumber() > a.timestampNumber()) {
       return 1;
     }
-    if (a.timestampNumber() < b.timestampNumber()) {
+    if (b.timestampNumber() < a.timestampNumber()) {
       return -1;
     }
     return 0;
@@ -105,10 +110,10 @@ function timestampAscending() {
 function timestampDescending() {
   var userArray = userList.query();
   userArray.sort( function (a, b) {
-    if (b.timestampNumber() > a.timestampNumber()) {
+    if (a.timestampNumber() > b.timestampNumber()) {
       return 1;
     }
-    if (b.timestampNumber() < a.timestampNumber()) {
+    if (a.timestampNumber() < b.timestampNumber()) {
       return -1;
     }
     return 0;
@@ -158,7 +163,8 @@ function createUser () {
                           email: document.querySelector('.email-input').value.toLowerCase().trim(),
                           timestamp: new Date() });
   if (userList.add(newUser)) {
-    document.querySelector('.user-list').appendChild(newUserListing(newUser));
+    // document.querySelector('.user-list').appendChild(newUserListing(newUser));
+    refreshList();
     hideNoUserNote();
   } else {
     showUserExistsNote();
@@ -304,7 +310,7 @@ function newEditButton(user) {
     var lastName = user.lastName;
     var email = user.email;
     document.querySelector('.edit-modal-greyout').className += ' visible';
-    document.querySelector('.edit-modal-user-name').textContent = user.fullName();
+    document.querySelector('.edit-modal-user-name').textContent = ' ' + user.fullName();
     document.querySelector('.edit-modal-first-name').value = firstName;
     document.querySelector('.edit-modal-last-name').value = lastName;
     document.querySelector('.edit-modal-email').value = email;
@@ -326,9 +332,7 @@ function newEditButton(user) {
         refreshList();
         document.querySelector('.edit-modal-greyout').className = 'edit-modal-greyout';
       } else {
-        refreshList();
         alert('invalid change: email must be unique');
-        document.querySelector('.edit-modal-greyout').className = 'edit-modal-greyout';
       }
     })
 
@@ -363,4 +367,9 @@ function showUserExistsNote() {
 
 function hideUserExistsNote() {
   document.querySelector('.user-exists').className = 'user-exists';
+}
+
+function clearSearch() {
+  searchBar.value = '';
+  document.querySelector('.no-users').className = 'no-users';
 }

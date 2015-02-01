@@ -5,6 +5,7 @@ var azButton = document.querySelector('.a-z');
 var zaButton = document.querySelector('.z-a');
 var newestFirstButton = document.querySelector('.newest-oldest');
 var oldestFirstButton = document.querySelector('.oldest-newest');
+var editCancelButton = document.querySelector('.edit-modal-cancel');
 
 showNoUserNote();
 
@@ -32,6 +33,12 @@ newestFirstButton.addEventListener('click', function() {
 
 oldestFirstButton.addEventListener('click', function() {
   timestampDescending();
+})
+
+editCancelButton.addEventListener('click', function(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  document.querySelector('.edit-modal-greyout').className = 'edit-modal-greyout';
 })
 
   //--------------------------------//
@@ -172,8 +179,10 @@ function newUserListing(user) {
   var userListingEmail = newUserListingEmail(user);
   var deleteButton = newDeleteButton(user);
   var timestamp = newTimestamp(user);
+  var editButton = newEditButton(user);
   userListingContainer.appendChild(deleteButton);
   userListingContainer.appendChild(userListingName);
+  userListingContainer.appendChild(editButton);
   userListingContainer.appendChild(timestamp);
   userListingContainer.appendChild(userListingEmail);
   return userListingContainer;
@@ -282,6 +291,50 @@ function newTimestamp (user) {
   timestamp.className = 'timestamp';
   timestamp.textContent = user.timestampString();
   return timestamp;
+}
+
+function newEditButton(user) {
+  var editButton = document.createElement('button');
+  editButton.className = 'edit-button';
+  editButton.textContent = 'edit';
+  var submitButton = document.querySelector('.edit-modal-submit');
+
+  editButton.addEventListener('click', function () {
+    var firstName = user.firstName;
+    var lastName = user.lastName;
+    var email = user.email;
+    document.querySelector('.edit-modal-greyout').className += ' visible';
+    document.querySelector('.edit-modal-user-name').textContent = user.fullName();
+    document.querySelector('.edit-modal-first-name').value = firstName;
+    document.querySelector('.edit-modal-last-name').value = lastName;
+    document.querySelector('.edit-modal-email').value = email;
+
+    var submitClone = submitButton.cloneNode(true);
+    submitButton.parentNode.replaceChild(submitClone, submitButton);
+
+    document.querySelector('.edit-modal-submit').addEventListener('click', function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      var editedUser = User({firstName: document.querySelector('.edit-modal-first-name').value.trim(),
+                              lastName: document.querySelector('.edit-modal-last-name').value.trim(),
+                              email: document.querySelector('.edit-modal-email').value.trim(),
+                              timestamp: user.timestamp,
+                              })
+
+      if (userList.replace(user, editedUser)) {
+        refreshList();
+        document.querySelector('.edit-modal-greyout').className = 'edit-modal-greyout';
+      } else {
+        refreshList();
+        alert('invalid change: email must be unique');
+        document.querySelector('.edit-modal-greyout').className = 'edit-modal-greyout';
+      }
+    })
+
+  })
+
+  return editButton;
 }
 
 function refreshList() {

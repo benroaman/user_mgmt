@@ -30,6 +30,18 @@ function ObjectStore() {
       collection = collection.filter(function (item) {
         return !obj.equal(item);
       });
+    },
+
+    replace: function (originalObj, newObj) {
+      if (originalObj.equal(newObj)) {
+        collection[collection.indexOf(originalObj)] = newObj;
+        return true;
+      } else if (self.exists(newObj)) {
+        return false;
+      } else {
+        collection[collection.indexOf(originalObj)] = newObj;
+        return true;
+      }
     }
 
   };

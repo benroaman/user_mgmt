@@ -87,7 +87,6 @@ body {
 }
 
 .delete-actual {
-  z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -110,12 +109,11 @@ body {
 
 .delete-widget {
   margin-left: 16px;
-  z-index: 100;
   color: white;
   visibility: hidden;
   opacity: 0;
   transition: all .15s;
-  background: firebrick;
+  background: rgba(178, 34, 34, .75);
   height: 48px;
   vertical-align: top;
   text-align: center;
@@ -318,11 +316,6 @@ body {
   transition: all .25s;
 }
 
-.visible {
-  visibility: visible;
-  opacity: 1;
-}
-
 .timestamp {
   font-size: .6em;
   color: rgba(0, 0, 0, .35);
@@ -381,4 +374,14 @@ body {
   border: 1px solid rgba(0, 0, 0, .35);
   text-align: center;
   transition: all .15s;
+}
+
+.edit-button {
+  position: absolute;
+  left: 20em;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
 }

@@ -13,7 +13,7 @@ function User(spec) {
     fullName: function() {
       return this.firstName + ' ' + this.lastName;
     },
-
+    
     equal: function(otherUser) {
       return this.email === otherUser.email;
     },

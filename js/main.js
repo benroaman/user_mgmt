@@ -53,10 +53,10 @@ editCancelButton.addEventListener('click', function(e) {
 function fullNameAscending() {
   var userArray = userList.query();
   userArray.sort( function (a, b) {
-    if (a.fullName() > b.fullName()) {
+    if (a.fullName().toLowerCase() > b.fullName().toLowerCase()) {
       return 1;
     }
-    if (a.fullName() < b.fullName()) {
+    if (a.fullName().toLowerCase() < b.fullName().toLowerCase()) {
       return -1;
     }
     return 0;
@@ -72,10 +72,10 @@ function fullNameAscending() {
 function fullNameDescending() {
   var userArray = userList.query();
   userArray.sort( function (a, b) {
-    if (b.fullName() > a.fullName()) {
+    if (b.fullName().toLowerCase() > a.fullName().toLowerCase()) {
       return 1;
     }
-    if (b.fullName() < a.fullName()) {
+    if (b.fullName().toLowerCase() < a.fullName().toLowerCase()) {
       return -1;
     }
     return 0;
@@ -303,7 +303,6 @@ function newEditButton(user) {
   var editButton = document.createElement('button');
   editButton.className = 'edit-button';
   editButton.textContent = 'edit';
-  var submitButton = document.querySelector('.edit-modal-submit');
 
   editButton.addEventListener('click', function () {
     var firstName = user.firstName;
@@ -315,6 +314,7 @@ function newEditButton(user) {
     document.querySelector('.edit-modal-last-name').value = lastName;
     document.querySelector('.edit-modal-email').value = email;
 
+    var submitButton = document.querySelector('.edit-modal-submit');
     var submitClone = submitButton.cloneNode(true);
     submitButton.parentNode.replaceChild(submitClone, submitButton);
 

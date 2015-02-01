@@ -1,0 +1,141 @@
+.delete-widget-button {
+  font-family: raleway;
+  font-size: .75em;
+  background: none;
+  border: 1px solid white;
+  color:white;
+  transition: .15s;
+}
+
+.delete-widget-button + .delete-widget-button {
+  margin-left: 1em;
+}
+
+.delete-widget-button:hover {
+  background: white;
+  color: firebrick;
+}
+
+.button {
+  font-family: raleway;
+  position: relative;
+  background: none;
+  font-size: 1.5em;
+  padding: .5em;
+  border: none;
+  border-radius: .6em;
+  border: 1px solid steelBlue;
+  color: steelblue;
+  transition: all .1s;
+  margin-bottom: .5em;
+}
+
+.button:before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  top: 7.5%;
+  border: 1px dotted steelblue;
+  border-radius: .45em;
+  height: 85%;
+  width: 90%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, .35);
+}
+
+.button:focus {
+  outline: none;
+  background: rgba(255, 255, 255, .35);
+}
+
+.button:active {
+  background: white;
+}
+
+.sort-button {
+  font-size: 1em;
+}
+
+.edit-button {
+  position: absolute;
+  left: 20em;
+}
+
+.edit-modal-button {
+  font-family: raleway;
+  position: relative;
+  background: rgba(255, 255, 255, .5);
+  font-size: 1em;
+  padding: .5em;
+  border: none;
+  border-radius: .6em;
+  border: 1px solid white;
+  color: white;
+  transition: all .1s;
+  margin-bottom: .5em;
+  transition: all .15s;
+}
+
+.edit-modal-button:focus {
+  outline: none;
+}
+
+.edit-modal-submit {
+  color: green;
+  margin-bottom: .75em;
+}
+
+.edit-modal-submit:hover {
+  background: rgba(0, 128, 0, .4);
+  color: white;
+}
+
+.edit-modal-submit:active {
+  background: green;
+  color:white;
+}
+
+.edit-modal-cancel {
+  color: firebrick;
+}
+
+.edit-modal-cancel:hover {
+  background: rgba(178, 34, 34, .5);
+  color: white;
+}
+
+.edit-modal-cancel:active {
+  background: firebrick;
+  color:white;
+}
+
+.edit-button {
+  box-sizing: content-box;
+  font-family: raleway;
+  border:none;
+  background: rgba(0, 0, 0, .35);
+  color: white;
+  border-radius:.5em;
+  border: 1px solid slategrey;
+  transition: all .15s;
+}
+
+.edit-button:hover {
+  background: white;
+  color: slategrey;
+  border: 1px solid slategrey;
+}
+
+.edit-button:active {
+  color: white;
+  border: 1px solid slategrey;
+  background: tomato;
+}
+
+.edit-button:focus {
+  outline: none;
+}

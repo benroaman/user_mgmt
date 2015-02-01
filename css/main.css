@@ -1,4 +1,6 @@
-/* TODO: Style your site */
+* {
+  font-weight: 300;
+}
 
 body {
   text-align: center;
@@ -7,42 +9,18 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  min-width: 1000px;
   background-position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  width: 99%;
 
 }
-
-.new-user-input {
-  font-family: raleway;
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 2em;
-  font-size: 1em;
-  height: 2.5em;
-  width: 95%;
-  background: none;
-  border: 1px solid rgba(0, 0, 0, .35);
-  text-align: center;
-  transition: all .15s;
-}
-
-.new-user-input:hover {
-  border: 1px solid steelblue;
-}
-
-.new-user-input:focus {
-  outline: none;
-  border: 2px solid steelblue;
-  }
 
 .form-label {
   font-size: 2em;
-  font-weight: bold;
   margin-top: .5em;
   color: steelblue;
-}
-
-.form-label + .new-user-input {
-  margin-top: 1em;
 }
 
 .user-listing-container {
@@ -50,7 +28,7 @@ body {
   /*border: 1px solid slategrey;*/
   padding: 1em;
   background: rgba(255,255,255,.5)
-  }
+}
 
 .user-listing-container + .user-listing-container {
   margin-top: .35em;
@@ -112,7 +90,7 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: all .15s;
-  background: rgba(178, 34, 34, .75);
+  background: rgba(178, 34, 34, .85);
   height: 48px;
   vertical-align: top;
   text-align: center;
@@ -124,24 +102,6 @@ body {
   display: block;
   font-size: .75em;
   padding: .5em .5em .5em .5em;
-}
-
-.delete-widget-button {
-  font-family: raleway;
-  font-size: .75em;
-  background: none;
-  border: 1px solid white;
-  color:white;
-  transition: .15s;
-}
-
-.delete-widget-button + .delete-widget-button {
-  margin-left: 1em;
-}
-
-.delete-widget-button:hover {
-  background: white;
-  color: firebrick;
 }
 
 .new-user-form,
@@ -175,46 +135,6 @@ body {
   overflow: scroll;
 }
 
-.submit-button {
-  font-family: raleway;
-  position: relative;
-  background: none;
-  font-size: 1.5em;
-  padding: .5em;
-  border: none;
-  border-radius: .6em;
-  border: 1px solid steelBlue;
-  color: steelblue;
-  transition: all .1s;
-  margin-bottom: .5em;
-}
-
-.submit-button:before {
-  content: '';
-  position: absolute;
-  left: 5%;
-  top: 7.5%;
-  border: 1px dotted steelblue;
-  border-radius: .45em;
-  height: 85%;
-  width: 90%;
-  z-index: 10;
-  box-sizing: border-box;
-}
-
-.submit-button:hover {
-  background: rgba(255, 255, 255, .35);
-}
-
-.submit-button:focus {
-  outline: none;
-  background: rgba(255, 255, 255, .35);
-}
-
-.submit-button:active {
-  background: white;
-}
-
 .no-users {
   font-size: 3.5em;
   color: rgba(0, 0, 0, .1);
@@ -236,74 +156,14 @@ body {
   text-align: center;
 }
 
-.sort-button {
-  font-family: raleway;
-  position: relative;
-  background: steelblue;
-  font-size: 1.5em;
-  height: 1.75em;
-  border: none;
-  border-radius: .6em;
-  color: white;
-  transition: all .15s;
-  margin-right: .25em;
-}
-
-.sort-button + .sort-button {
-  margin-right: 1em;
-}
-
-.sort-button:before {
-  content: '';
-  position: absolute;
-  left: 5%;
-  top: 7.5%;
-  border: 1px dotted white;
-  border-radius: .5em;
-  height: 85%;
-  width: 90%;
-  z-index: 10;
-  box-sizing: border-box;
-}
-
-.sort-button:hover {
-  background: skyblue;
-}
-
-.sort-button:focus {
-  outline: none;
-}
-
-.sort-button:active {
-  background: steelblue;
-}
-
 .tool-container {
   position: relative;
   top: 50%;
-  transform: translate(0, -50%);
+  margin-right: -2em;
 }
 
-.search-bar {
-  font-family: raleway;
-  box-sizing: border-box;
-  font-size: 1em;
-  height: 2em;
-  width: 10em;
-  background: none;
-  border: 1px solid rgba(0, 0, 0, .35);
-  text-align: center;
-  transition: all .15s;
-  margin-right: 4em;
-}
-
-.search-bar:hover {
-  border: 1px solid steelblue;
-}
-
-.search-bar:focus {
-  outline: none;
-  border: 2px solid steelblue;
+.tool {
+  margin-left: 1em;
 }
 
 .user-exists {
@@ -338,10 +198,10 @@ body {
 
 .edit-modal-content {
   text-align: center;
-  background: rgba(70, 130, 180, .5);
+  background: rgba(70, 130, 180, .6);
   border: 2px solid rgba(255, 255, 255, .5);
-  height: 50%;
-  width: 30%;
+  height: 400px;
+  width: 300px;
   position: absolute;
   top: 50%;
   left:50%;
@@ -351,35 +211,16 @@ body {
 .edit-modal-title {
   font-size: 1.5em;
   display: block;
-  padding: 1em;
-  color: rgba(255, 255, 255, .5);
+  padding: .75em;
+  color: rgba(255, 255, 255, .65);
 }
 
 .edit-modal-user-name {
   text-transform: capitalize;
   display: block;
-  color: rgba(178, 34, 34, .5);
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-
-.modal-input {
-  font-family: raleway;
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 2em;
-  font-size: 1em;
-  height: 2.5em;
-  width: 90%;
-  background: rgba(70, 130, 180, .5);
-  border: 1px solid rgba(0, 0, 0, .35);
-  text-align: center;
-  transition: all .15s;
-}
-
-.edit-button {
-  position: absolute;
-  left: 20em;
+  color: rgba(178, 34, 34, .65);
+  font-size: 1.25em;
+  margin-bottom: .75em;
 }
 
 .visible {

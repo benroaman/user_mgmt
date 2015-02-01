@@ -1,0 +1,71 @@
+.new-user-input {
+  font-family: raleway;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 2em;
+  font-size: 1em;
+  height: 2.5em;
+  width: 95%;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, .35);
+  text-align: center;
+  transition: all .15s;
+}
+
+.new-user-input:hover {
+  border: 1px solid steelblue;
+}
+
+.new-user-input:focus {
+  outline: none;
+  border: 2px solid steelblue;
+}
+
+.form-label + .new-user-input {
+  margin-top: 1em;
+}
+
+.search-bar {
+  font-family: raleway;
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 2em;
+  width: 10em;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, .35);
+  text-align: center;
+  transition: all .15s;
+  margin-right: 7em;
+}
+
+.search-bar:hover {
+  border: 1px solid steelblue;
+}
+
+.search-bar:focus {
+  outline: none;
+  border: 2px solid steelblue;
+}
+
+.modal-input {
+  color: white;
+  font-family: raleway;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 1.5em;
+  font-size: 1em;
+  height: 2.5em;
+  width: 90%;
+  background: rgba(70, 130, 180, .5);
+  border: 1px solid rgba(255, 255, 255, .35);
+  text-align: center;
+  transition: all .15s;
+}
+
+.modal-input:hover {
+  border-color: white;
+}
+
+.modal-input:focus {
+  border: 2px solid white;
+}

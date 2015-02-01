@@ -181,59 +181,42 @@ function resetUserInput() {
 
 function newUserListing(user) {
   var userListingContainer = newUserListingContainer();
-  var userListingName = newUserListingName(user);
-  var userListingEmail = newUserListingEmail(user);
-  var deleteButton = newDeleteButton(user);
-  var timestamp = newTimestamp(user);
-  var editButton = newEditButton(user);
-  userListingContainer.appendChild(deleteButton);
-  userListingContainer.appendChild(userListingName);
-  userListingContainer.appendChild(editButton);
-  userListingContainer.appendChild(timestamp);
-  userListingContainer.appendChild(userListingEmail);
+  userListingContainer.appendChild(newDeleteButton(user));
+  userListingContainer.appendChild(newUserListingName(user));
+  userListingContainer.appendChild(newEditButton(user));
+  userListingContainer.appendChild(newTimestamp(user));
+  userListingContainer.appendChild(newUserListingEmail(user));
   return userListingContainer;
 }
 
 function newUserListingContainer() {
-  var shellDiv = document.createElement('div');
-  var classAtt = document.createAttribute('class');
-  classAtt.value = 'user-listing-container';
-  shellDiv.setAttributeNode(classAtt);
-  return shellDiv;
+  var userListingContainer = document.createElement('div');
+  userListingContainer.className = 'user-listing-container';
+  return userListingContainer;
 }
 
 function newUserListingName(user) {
   var userListingName = document.createElement('span');
-  var classAtt = document.createAttribute('class');
-  classAtt.value = 'user-listing-name';
-  userListingName.setAttributeNode(classAtt);
+  userListingName.className = 'user-listing-name';
   userListingName.textContent = ' ' + user.fullName();
   return userListingName;
 }
 
 function newUserListingEmail(user) {
   var userListingEmail = document.createElement('a');
-  var classAtt = document.createAttribute('class');
-  var hrefAtt = document.createAttribute('href');
-  classAtt.value = 'user-listing-email';
-  hrefAtt.value = 'mailto:' + user.email;
-  userListingEmail.setAttributeNode(classAtt);
-  userListingEmail.setAttributeNode(hrefAtt);
+  userListingEmail.className = 'user-listing-email';
+  userListingEmail.href = 'mailto:' + user.email;
   userListingEmail.textContent = user.email;
   return userListingEmail;
 }
 
 function newDeleteButton (user) {
   var deleteButton = document.createElement('div');
-  var classAtt = document.createAttribute('class');
-  var deleteWidget = newDeleteWidget(user);
-  classAtt.value = 'delete';
-  deleteButton.setAttributeNode(classAtt);
+  deleteButton.className = 'delete';
   var deleteActual = document.createElement('button');
-  var classAttActual = document.createAttribute('class');
-  classAttActual.value = 'delete-actual';
-  deleteActual.setAttributeNode(classAttActual);
+  deleteActual.className = 'delete-actual';
   deleteActual.textContent = 'x';
+  var deleteWidget = newDeleteWidget(user);
 
   deleteActual.addEventListener('click', function () {
     deleteWidget.className += ' visible';
@@ -247,19 +230,13 @@ function newDeleteButton (user) {
 
 function newDeleteWidget(user) {
   var deleteWidgetContainer = document.createElement('div');
-  var classAtt = document.createAttribute('class');
-  classAtt.value = 'delete-widget';
-  deleteWidgetContainer.setAttributeNode(classAtt);
+  deleteWidgetContainer.className = 'delete-widget';
   var deleteWidgetText = document.createElement('span');
-  var classAttText = document.createAttribute('class');
-  classAttText.value = 'delete-widget-text';
-  deleteWidgetText.setAttributeNode(classAttText);
+  deleteWidgetText.className = 'delete-widget-text';
   deleteWidgetText.textContent = 'delete ' + user.fullName() + '?';
   var deleteWidgetYes = newDeleteWidgetYesButton(user);
   var deleteWidgetNo = document.createElement('button');
-  var classAttNo = document.createAttribute('class');
-  classAttNo.value = 'delete-widget-button delete-widget-no';
-  deleteWidgetNo.setAttributeNode(classAttNo);
+  deleteWidgetNo.className = 'delete-widget-button delete-widget-no';
   deleteWidgetNo.textContent = 'no';
 
   deleteWidgetNo.addEventListener('click', function() {
@@ -276,9 +253,7 @@ function newDeleteWidget(user) {
 
 function newDeleteWidgetYesButton(user) {
   var deleteWidgetYes = document.createElement('button');
-  var classAttYes = document.createAttribute('class');
-  classAttYes.value = 'delete-widget-button delete-widget-yes';
-  deleteWidgetYes.setAttributeNode(classAttYes);
+  deleteWidgetYes.className = 'delete-widget-button delete-widget-yes';
   deleteWidgetYes.textContent = 'yes';
 
   deleteWidgetYes.addEventListener('click', function () {
@@ -291,9 +266,6 @@ function newDeleteWidgetYesButton(user) {
 
 function newTimestamp (user) {
   var timestamp = document.createElement('span');
-  var classAtt = document.createAttribute('class');
-  classAtt.value = 'timestamp';
-  timestamp.setAttributeNode(classAtt);
   timestamp.className = 'timestamp';
   timestamp.textContent = user.timestampString();
   return timestamp;
@@ -371,5 +343,7 @@ function hideUserExistsNote() {
 
 function clearSearch() {
   searchBar.value = '';
+  if (userList.query().length !== 0) {
   document.querySelector('.no-users').className = 'no-users';
+  }
 }
